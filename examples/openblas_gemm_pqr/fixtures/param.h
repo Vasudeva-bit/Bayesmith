@@ -1,0 +1,3 @@
+#define GEMM_DEFAULT_P 384
+#define GEMM_DEFAULT_Q 512
+#define GEMM_DEFAULT_R 5936

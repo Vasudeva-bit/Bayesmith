@@ -1,0 +1,5 @@
+backend: botorch
+capability_matrix_version: "1.0"
+maintenance_status: maintained
+capabilities: {continuous: true, stepped_integer: adapter_required, categorical: adapter_required, conditional: adapter_required, pre_eval_nonlinear_constraints: true, multi_objective: true, multi_fidelity: true, batch: true, ask_and_tell: true, storage_resume: checkpoint_required, custom_kernel: true, custom_acquisition: true}
+v1_status: "introspection only; no runnable adapter"

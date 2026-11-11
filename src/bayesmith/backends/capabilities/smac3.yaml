@@ -1,0 +1,5 @@
+backend: smac3
+capability_matrix_version: "1.0"
+maintenance_status: maintained
+capabilities: {continuous: true, stepped_integer: true, categorical: true, conditional: true, pre_eval_nonlinear_constraints: true, multi_objective: false, multi_fidelity: true, batch: true, ask_and_tell: true, storage_resume: true, custom_kernel: limited, custom_acquisition: limited}
+v1_status: "introspection only; no runnable adapter"

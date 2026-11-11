@@ -1,0 +1,37 @@
+rules:
+  - rule_id: R_INIT_BASELINE_SOBOL
+    when: always
+    recommend_method_id: baseline_first
+    rationale: Evaluate the exact baseline first; subsequent startup sampling uses the selected framework sampler. The Optuna adapter does not currently use Sobol initialization.
+    citation_keys: [optuna]
+    status: heuristic
+  - rule_id: R_SOBOL_INITIAL_DESIGN
+    when: backend_supports_sobol
+    recommend_method_id: scrambled_sobol
+    rationale: Scrambled Sobol points are a low-discrepancy design option when a backend adapter filters the feasible pool before evaluation.
+    citation_keys: [sobol]
+    status: established
+  - rule_id: R_PRE_EVAL_REPARAM
+    when: stepped_or_constraints
+    recommend_method_id: pre_eval_filter
+    rationale: Represent stepped integers by integer indices and reject known-invalid points before evaluation.
+    citation_keys: [optuna]
+    status: heuristic
+  - rule_id: R_TPE_FALLBACK
+    when: optuna_backend
+    recommend_method_id: tpe
+    rationale: TPE is Optuna's well-supported sampler for mixed and discrete search spaces.
+    citation_keys: [bergstra2011, optuna]
+    status: established
+  - rule_id: R_SURROGATE_GP_MATERN52_ARD
+    when: low_dimensional_numeric
+    recommend_method_id: explicit_matern52_ard
+    rationale: An explicit Matérn 5/2 ARD kernel is a candidate for low-dimensional numeric profiles; preference for rougher behavior near cliffs is a heuristic and must be tested against simpler alternatives.
+    citation_keys: [gpml2006]
+    status: heuristic
+  - rule_id: R_CRASH_IMPUTE
+    when: failures_without_classifier
+    recommend_method_id: conservative_imputation
+    rationale: Impute failed outcomes conservatively and mark them so they are excluded from reported results.
+    citation_keys: [bayesmith_imputation_heuristic]
+    status: heuristic

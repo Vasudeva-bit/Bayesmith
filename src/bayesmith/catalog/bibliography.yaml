@@ -1,0 +1,37 @@
+references:
+  optuna:
+    title: "Optuna: A Next-generation Hyperparameter Optimization Framework"
+    url: https://doi.org/10.1145/3292500.3330701
+    kind: primary
+  bergstra2011:
+    title: Algorithms for Hyper-Parameter Optimization
+    url: https://proceedings.neurips.cc/paper_files/paper/2011/hash/86e8f7ab32cfd12577bc2619bc635690-Abstract.html
+    kind: primary
+  sobol:
+    title: On the Distribution of Points in a Cube and the Approximate Evaluation of Integrals
+    url: https://doi.org/10.1016/S0378-4754(00)00244-4
+    kind: primary
+  gelbart2014:
+    title: A Decision-Theoretic Approach to Take the Human Out of the Loop in Bayesian Optimization
+    url: https://proceedings.neurips.cc/paper_files/paper/2014/hash/06964dce9addb1c5cb5d6e3d9838f733-Abstract.html
+    kind: primary
+  gpml2006:
+    title: Gaussian Processes for Machine Learning, Chapter 4
+    url: https://gaussianprocess.org/gpml/chapters/RW4.pdf
+    kind: primary
+  bayesmith_imputation_heuristic:
+    title: Bayesmith documented conservative imputation heuristic (not externally validated)
+    url: https://github.com/Vasudeva-bit/Bayesmith/blob/main/docs/DESIGN.md
+    kind: internal-unverified
+  openblas_pr5868:
+    title: OpenBLAS PR 5868, Optimize Zen 4 GEMM macro block sizes
+    url: https://github.com/OpenMathLib/OpenBLAS/pull/5868
+    kind: primary
+  openblas_issue5837:
+    title: OpenBLAS issue 5837, Zen 4 / EPYC macro-blocking tuning
+    url: https://github.com/OpenMathLib/OpenBLAS/issues/5837
+    kind: primary
+  scikit_optimize_archive:
+    title: scikit-optimize archived upstream repository
+    url: https://github.com/scikit-optimize/scikit-optimize
+    kind: primary

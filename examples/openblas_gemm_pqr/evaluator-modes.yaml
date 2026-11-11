@@ -1,0 +1,9 @@
+build_per_trial:
+  enabled: true
+  source_strategy: "engineer supplies isolated copy/worktree command"
+  cache_key: "source revision + compiler flags + precision + P/Q/R"
+  max_build_jobs: 4
+runtime_env_hook:
+  enabled: true
+  env_names: [BAYESMITH_GEMM_P, BAYESMITH_GEMM_Q, BAYESMITH_GEMM_R]
+  warning: "Local tuning-only patch sketch; remove it and rebuild cleanly for final verification."

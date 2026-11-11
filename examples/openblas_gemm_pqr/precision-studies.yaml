@@ -1,0 +1,11 @@
+# Values below reproduce the PR's published table exactly. These are not
+# optimizer recommendations and are not used as defaults by the generator.
+# Run a separate profile per precision after establishing safe, source-derived
+# ranges for the exact core/kernel/build combination.
+reported_results:
+  source: https://github.com/OpenMathLib/OpenBLAS/pull/5868
+  variants:
+    - {precision: SGEMM, baseline_gflops: 2880.00, reported_parameters: [384, 512, 5936], reported_gflops: 3080.71, reported_improvement_pct: 6.9}
+    - {precision: DGEMM, baseline_gflops: 1293.73, reported_parameters: [512, 512, 2288], reported_gflops: 1511.87, reported_improvement_pct: 16.8}
+    - {precision: CGEMM, baseline_gflops: 2981.33, reported_parameters: [160, 480, 528], reported_gflops: 3143.95, reported_improvement_pct: 5.4}
+    - {precision: ZGEMM, baseline_gflops: 1288.60, reported_parameters: [176, 256, 1520], reported_gflops: 1459.45, reported_improvement_pct: 13.2}

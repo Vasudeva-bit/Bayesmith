@@ -1,0 +1,21 @@
+backend: optuna
+capability_matrix_version: "1.0"
+tested_package: "optuna==5.0.0 (documented target; CI installs this version)"
+maintenance_status: maintained
+capabilities:
+  continuous: true
+  stepped_integer: true
+  categorical: true
+  conditional: true
+  pre_eval_nonlinear_constraints: adapter_filtering
+  multi_objective: true
+  multi_fidelity: pruning_supported
+  batch: true
+  ask_and_tell: true
+  storage_resume: sqlite
+  custom_kernel: false
+  custom_acquisition: false
+limitations:
+  - "The generated v1 adapter does not implement a GP kernel/acquisition path."
+  - "The generic adapter filters known constraints after ask; it logs/rejects before evaluation but is not a feasible-candidate sampler."
+  - "The runner currently implements single objective only."

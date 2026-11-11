@@ -1,0 +1,37 @@
+methods:
+  baseline_first:
+    category: initial_design
+    rule_ids: [R_INIT_BASELINE_SOBOL]
+    status: heuristic
+    citation_keys: [optuna]
+    backend_bindings: {optuna: {callable: optuna.study.Study.enqueue_trial}}
+  scrambled_sobol:
+    category: initial_design
+    rule_ids: [R_SOBOL_INITIAL_DESIGN]
+    status: established
+    citation_keys: [sobol]
+    backend_bindings: {optuna: {callable: optuna.samplers.QMCSampler, kwargs: {qmc_type: sobol}}}
+  tpe:
+    category: sampler
+    rule_ids: [R_TPE_FALLBACK]
+    status: established
+    citation_keys: [bergstra2011, optuna]
+    backend_bindings: {optuna: {callable: optuna.samplers.TPESampler, kwargs: {multivariate: true, seed: 2026}}}
+  explicit_matern52_ard:
+    category: kernel
+    rule_ids: [R_SURROGATE_GP_MATERN52_ARD]
+    status: heuristic
+    citation_keys: [gpml2006]
+    backend_bindings: {botorch: {callable: gpytorch.kernels.MaternKernel, kwargs: {nu: 2.5, ard_num_dims: dimensions}}}
+  conservative_imputation:
+    category: crash_strategy
+    rule_ids: [R_CRASH_IMPUTE]
+    status: heuristic
+    citation_keys: [bayesmith_imputation_heuristic]
+    backend_bindings: {optuna: {callable: bayesmith.planner.failures.impute_failure, kwargs: {margin_fraction: 0.15}}}
+  pre_eval_filter:
+    category: constraint_strategy
+    rule_ids: [R_PRE_EVAL_REPARAM]
+    status: established
+    citation_keys: [optuna]
+    backend_bindings: {optuna: {callable: bayesmith.harness.constraints_pass}}
